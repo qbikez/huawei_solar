@@ -36,6 +36,7 @@ DEFAULT_COOLDOWN_INTERVAL = 0.1
 DEFAULT_RECONNECT_INTERVAL = 30
 
 CONF_OPTIMIZERS = "optimizers"
+CONF_NAME = "name" 
 CONF_BATTERY = "battery"
 CONF_SLAVE = "slave"
 CONF_PORT = "port"
@@ -157,6 +158,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
         vol.Optional(CONF_BATTERY, default=False): cv.boolean,
         vol.Optional(CONF_SLAVE, default=0): int,
         vol.Optional(CONF_PORT, default=502): int,
+        vol.Optional(CONF_NAME): cv.string,
     }
 )
 
@@ -176,6 +178,8 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
             static_attributes[register] = (await inverter.get(register)).value
             _LOGGER.debug("get sensor static attribute: %s", register)
             await asyncio.sleep(DEFAULT_COOLDOWN_INTERVAL)
+        if config[CONF_NAME]:
+            static_attributes["model_name"] = config[CONF_NAME]
 
         register = ATTR_GRID_CODE
         tmp = (await inverter.get(register)).value
