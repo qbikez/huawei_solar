@@ -168,8 +168,8 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
     static_attributes = {}
 
     try:
-        inverter = AsyncHuaweiSolar(
-            host=config[CONF_HOST], port=config[CONF_PORT], loop=hass.loop, slave=config[CONF_SLAVE]
+        inverter = await AsyncHuaweiSolar.create(
+            host=config[CONF_HOST], port=config[CONF_PORT], slave=config[CONF_SLAVE]
         )
 
         for register in STATIC_ATTR_LIST:
