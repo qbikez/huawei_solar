@@ -158,7 +158,7 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
         vol.Optional(CONF_BATTERY, default=False): cv.boolean,
         vol.Optional(CONF_SLAVE, default=0): int,
         vol.Optional(CONF_PORT, default=502): int,
-        vol.Optional(CONF_NAME, default=None): cv.string,
+        vol.Optional(CONF_NAME, default=''): cv.string,
     }
 )
 
