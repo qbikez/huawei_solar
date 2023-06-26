@@ -79,7 +79,8 @@ DYNAMIC_ATTR_LIST = [
     "phase_B_current",
     "phase_C_current",
     "power_meter_active_power",
-    "input_power",
+    "input_power", # Total input power
+    "active_power",
     "grid_A_voltage",
     "grid_B_voltage",
     "grid_C_voltage",
