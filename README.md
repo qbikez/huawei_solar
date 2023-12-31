@@ -52,3 +52,14 @@ If it is still not working after that, restart the inverter and try again.
 
 - Sensors names now include the serial number. If you have existing templates/lovelace/automations you should update those to the new name or use the UI to change the name back to the old name.
 - the `daily_yield`, `total_yield`, `storage_charge_discharge_power`, `storage_total_charge` and `storage_total_discharge` are now separate sensors instead of attributes.
+
+## Home assistant
+
+Working versions:
+
+```
+/usr/local/lib/python3.11/site-packages# ls pymodbus
+pymodbus/                 pymodbus-3.5.4.dist-info/
+/usr/local/lib/python3.11/site-packages# ls huawei_solar
+huawei_solar/                 huawei_solar-2.2.9.dist-info/
+```
